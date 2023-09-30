@@ -3,7 +3,7 @@ name: johnkhw.github.io CI
 on:
   push:
     branches:
-      - v2
+      - main
 
 jobs:
   deploy:
