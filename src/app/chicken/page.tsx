@@ -48,20 +48,15 @@ const  ChickenPage = () => {
             ...questionMapping,
             [tempNameInput]: tempQuestionInput
         })
-        setTempNameInput('')
-        setTempQuestionInput('')
-    }
-
-    const handleClickGetAnswerOK = () => {
-        setInputCount((old) => old+1);
 
         setGetAnswerMapping({
             ...questionMapping,
-            [tempNameInput]: tempQuestionInput
+            [tempNameInput]: tempAnswerInput
         })
         setTempNameInput('')
         setTempQuestionInput('')
     }
+
 
     useEffect(()=> {
         if( inputCount === playerCount && playerCount != 0) {
@@ -131,6 +126,13 @@ const  ChickenPage = () => {
                             <h1>問題係 </h1>
                             <span>{tempQuestionInput}</span>
                             </div>
+
+                            <TextField 
+                                label="輸入你嘅答案"
+                                variant="outlined"
+                                value={tempAnswerInput} 
+                                onChange={(e)=>setTempAnswerInput(e.target.value)} 
+                            />
                             <Button variant="text" onClick={handleClickGetQuestionOK}>OK</Button>
                         </>
                         }
@@ -157,12 +159,6 @@ const  ChickenPage = () => {
                                     ))}
                                 </Select>
                             </FormControl>
-                            <TextField 
-                                label="輸入你嘅問題"
-                                variant="outlined"
-                                value={tempQuestionInput} 
-                                onChange={(e)=>setTempQuestionInput(e.target.value)} 
-                            />
                             <Button variant="text" onClick={handleQuestionOk}>OK</Button>
                         </div>
                     </div>
